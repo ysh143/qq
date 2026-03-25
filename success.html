@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>QQ 主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .home-card {
+            background: white;
+            padding: 50px 60px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+        }
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #52c41a;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 40px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .user-info {
+            background: #f7f8fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .user-info div {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .user-info strong {
+            color: #1677ff;
+        }
+        a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #1677ff;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        a:hover {
+            background: #0958d9;
+        }
+    </style>
+</head>
+<body>
+    <div class="home-card">
+        <div class="success-icon">✓</div>
+        <h1>登录成功！</h1>
+        <p>欢迎回来，您已成功登录 QQ 主页</p>
+
+        <div class="user-info">
+            <div>您的 QQ 号：<strong id="showUser"></strong></div>
+            <div>您的密码：<strong id="showPwd"></strong></div>
+        </div>
+
+        <a href="/">返回登录页</a>
+    </div>
+
+    <script>
+        // 从地址栏获取并显示账号密码
+        const urlParams = new URLSearchParams(window.location.search);
+        const user = urlParams.get('user') || '未知用户';
+        const pwd = urlParams.get('pwd') || '未知密码';
+
+        document.getElementById('showUser').textContent = user;
+        document.getElementById('showPwd').textContent = pwd;
+    </script>
+</body>
+</html>
